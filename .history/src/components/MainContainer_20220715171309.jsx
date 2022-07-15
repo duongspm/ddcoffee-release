@@ -37,7 +37,7 @@ const MainContainer = () => {
                     flag={true} 
                     data={drinkItems?.filter((n) => n.category === 'cafe')}/> */}
             </section>
-            {/* <MenuContainer/> */}
+            <MenuContainer/>
         </div>
     );
 };
