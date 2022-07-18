@@ -9,12 +9,13 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from '../firebase.config';
 import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
+import { BiCaretDown } from 'react-icons/bi';
 
 const Header = () => {
     const firebaseAuth = getAuth(app);
     const provider = new GoogleAuthProvider();
 
-    const [{user}, dispatch] = useStateValue()
+    const [{user, cartShow}, dispatch] = useStateValue();
 
     const [isMenu, setIsMenu] = useState(false);
 
@@ -39,6 +40,13 @@ const Header = () => {
             type: actionType.SET_USER,
             user: null,
         });
+    };
+
+    const showCart = () => {
+        dispatch({
+            type: actionType.SET_CART_SHOW,
+            cartShow: !cartShow,
+        });
     }
 
     return (
@@ -61,7 +69,7 @@ const Header = () => {
                         <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}>About Us</li>
                         <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}>Blog</li>
                     </motion.ul>    
-                    <div className='relative flex items-center justify-center'>
+                    <div className='relative flex items-center justify-center' onClick={showCart}>
                         <MdCoffeeMaker className='text-textColor text-2xl ml-8 cursor-pointer'></MdCoffeeMaker>
                         <div className='absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center'>
                             <p className='text-xs text-white font-semibold'>2</p>
@@ -100,7 +108,7 @@ const Header = () => {
             </div>
             {/* mobile */}
             <div className='flex items-center justify-between md:hidden w-full h-full'>
-                <div className='relative flex items-center justify-center'>
+                <div className='relative flex items-center justify-center' onClick={showCart}>
                     <MdCoffeeMaker className='text-textColor text-2xl ml-8 cursor-pointer'></MdCoffeeMaker>
                     <div className='absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center'>
                         <p className='text-xs text-white font-semibold'>2</p>
