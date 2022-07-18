@@ -9,6 +9,11 @@ import { getALlDrinkItems } from './utils/firebaseFunctions';
 import { useEffect } from 'react';
 import { actionType } from './context/reducer';
 
+//mongodb
+// import {Provider} from 'react-redux';
+// import {createStore, appliMiddleware} from 'redux';
+// import createSagaMiddleware from 'redux-saga'
+;
 function App() {
   const [{drinkItems}, dispatch] = useStateValue();
   const fetchData = async() => {
@@ -21,7 +26,7 @@ function App() {
   };
   useEffect(() => {
     fetchData();
-  }, [])
+  }, []);
   
 
   return (

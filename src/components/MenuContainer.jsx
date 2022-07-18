@@ -4,13 +4,13 @@ import { categories } from '../utils/data';
 import {motion} from 'framer-motion';
 import RowContainer from './RowContainer';
 import { useStateValue } from '../context/StateProvider';
+import RowContainerRelease from './RowContainerRelease';
 
 
 const MenuContainer = () => {
     const [filter, setFilter] = useState("cafe");
 
     const [{drinkItems}, dispatch] = useStateValue();
-
 
     return (
         <section id="menu" className="w-full my-6">
@@ -29,7 +29,8 @@ const MenuContainer = () => {
                     )}
                 </div>
                 <div className='w-full'>
-                    <RowContainer flag={false} data={drinkItems?.filter((n) => n.category === filter)} />
+                    {/* <RowContainer flag={false} data={drinkItems?.filter((n) => n.category === filter)} /> */}
+                    <RowContainerRelease flag={false} data={drinkItems?.filter((n) => n.category === filter)} />
                 </div>
             </div>
         </section>

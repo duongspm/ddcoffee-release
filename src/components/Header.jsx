@@ -48,7 +48,7 @@ const Header = () => {
                 <Link to={"/"} className='flex items-center gap-2'>
                     {/* <img src={Logo} className="w-16 object-cover" alt="Logo nef"/> */}
                     <MdCoffee className='w-16 object-cover cursor-pointer text-6xl hover:text-cartNumBg'></MdCoffee>
-                    <motion.p whileTap={{scale: 0.6}}  className='text-headingColor text-xl font-bold'><span className='text-green-800'>DD</span> Cup & Tea</motion.p>
+                    <motion.p whileTap={{scale: 0.6}}  className='text-headingColor text-xl font-bold'><span className='text-green-800'>DD</span> Coffee & Tea</motion.p>
                 </Link>
                 <div className='flex items-center gap-8'> {/* bo ra ngoai div nay thi no se nam giua */}
                     <motion.ul 

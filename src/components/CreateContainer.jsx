@@ -4,7 +4,7 @@ import {MdOutlineEmojiFoodBeverage, MdCloudUpload, MdDelete, MdOutlineLocalDrink
 import { categories } from '../utils/data';
 import Loader from './Loader';
 import { storage } from '../firebase.config';
-import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { deleteObject, getDownloadURL, ref, uploadBytesResumable} from 'firebase/storage';
 import { getALlDrinkItems, saveItem } from '../utils/firebaseFunctions';
 import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
@@ -24,6 +24,7 @@ const CreateContainer = () => {
 
     const uploadImage = (e) => {
         setIsLoading(true);
+    
         const imageFile = e.target.fields[0];
         const storageRef = ref(storage, `Images/${Date.now()}-${imageFile.name}`);
         const uploadTask = uploadBytesResumable(storageRef, imageFile);
@@ -170,6 +171,15 @@ const CreateContainer = () => {
                         ))}
                     </select>
                 </div>
+                {/* duongg */}
+                <div className='w-full py-2 border-b border-gray-300 flex items-center gap-2'>
+                    <a href='https://cloudinary.com/console/c-629aab4cdbd7e86baacabc8cd53c9d/media_library/folders/c0ffe9323f8954738ae424af0b46d79626'><MdCloudUpload className='text-gray-700 text-2xl'/></a>
+                    <input type="text" required 
+                    value={calories} onChange={(e) => setCalories(e.target.value)}
+                    placeholder='Clound Image (password: Dungttt@2307' className='w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-300 text-textColor'></input>
+                </div>
+               
+                {/* duongg */}
                 <div className='group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-225 md:h-420 cursor-pointer rounded-lg'>
                     {isLoading 
                     ? <Loader/> 
@@ -180,7 +190,7 @@ const CreateContainer = () => {
                                         <div className='w-full h-full flex flex-col items-center justify-center gap-2'><MdCloudUpload className='text-gray-500 text-3xl hover:text-gray-700'/>
                                         <p className='text-gray-500 hover:text-gray-700'> Click here to upload
                                             </p></div>
-                                            <input type='file' name='uploadimage' accept="image/*" onChange={uploadImage} className='w-0 h-0'></input>
+                                            <input type='file' name='uploadimage' accept="Images/*" onChange={uploadImage} className='w-0 h-0'></input>
                                     </label>
                                 </> 
                                 ) : ( 

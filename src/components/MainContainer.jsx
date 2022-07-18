@@ -5,15 +5,13 @@ import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import RowContainer from './RowContainer';
 import { useStateValue } from '../context/StateProvider';
 import MenuContainer from './MenuContainer';
+import RowContainerRelease from './RowContainerRelease';
 
 const MainContainer = () => {
     const [{drinkItems}, dispatch] = useStateValue();
     const [scrollValue, setScrollValue] = useState(0);
-    // const rowContainerRef = useRef();
+
     useEffect(() => {}, [scrollValue])
-    // const scroll = (scrollOffset) => {
-        
-    // }
 
     return (
         <div className='w-full h-auto flex flex-col items-center justify-center'>
@@ -36,8 +34,9 @@ const MainContainer = () => {
                     scrollValue = {scrollValue}
                     flag={true} 
                     data={drinkItems?.filter((n) => n.category === 'cafe')}/> */}
+                    <RowContainerRelease scrollValue = {scrollValue} flag={true} data={drinkItems?.filter((n) => n.category === 'cafe')}/>
             </section>
-            {/* <MenuContainer/> */}
+                <MenuContainer/>
         </div>
     );
 };
