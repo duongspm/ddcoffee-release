@@ -8,3 +8,4 @@ export {default as MenuContainer} from './MenuContainer';
 
 export {default as RowContainerRelease} from './RowContainerRelease';
 export {default as CartContainer} from './CartContainer';
+export {default as CartItem} from './CartItem';

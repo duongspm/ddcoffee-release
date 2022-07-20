@@ -7,7 +7,7 @@ import { useStateValue } from '../context/StateProvider';
 import MenuContainer from './MenuContainer';
 import RowContainerRelease from './RowContainerRelease';
 import CartContainer from './CartContainer';
-
+import {CartProvider} from 'react-use-cart';
 const MainContainer = () => {
     const [{drinkItems, cartShow}, dispatch] = useStateValue();
     const [scrollValue, setScrollValue] = useState(0);
@@ -40,11 +40,12 @@ const MainContainer = () => {
                     <RowContainerRelease scrollValue = {scrollValue} flag={true} data={drinkItems?.filter((n) => n.category === 'cafe')}/>
             </section>
             {/* End category */}
-
-            {/* Start Menu */}
-            <MenuContainer/>
-            {/* End Menu */}
-            {cartShow && <CartContainer/> }
+            <CartProvider>
+                {/* Start Menu */}
+                <MenuContainer/>
+                {/* End Menu */}
+                {cartShow && <CartContainer/> }
+            </CartProvider>
         </div>
     );
 };
