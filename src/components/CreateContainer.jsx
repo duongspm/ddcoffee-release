@@ -8,6 +8,8 @@ import { deleteObject, getDownloadURL, ref, uploadBytesResumable} from 'firebase
 import { getALlDrinkItems, saveItem } from '../utils/firebaseFunctions';
 import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CreateContainer = () => {
 
@@ -24,56 +26,70 @@ const CreateContainer = () => {
 
     const uploadImage = (e) => {
         setIsLoading(true);
-    
-        const imageFile = e.target.fields[0];
+        const imageFile = e.target.files[0];
         const storageRef = ref(storage, `Images/${Date.now()}-${imageFile.name}`);
         const uploadTask = uploadBytesResumable(storageRef, imageFile);
-
+    
         uploadTask.on(
-            "state_changed", 
-            (snapshot) => {
-                const uploadProgress = 
-                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            }, 
-            (error) => {
-                console.log(error);
-                setFields(true);
-                setMsg('Error while uploading : Try Again 😟😥');
-                setAlertStatus("danger");
-                setTimeout(() => {
-                    setFields(false)
-                    setIsLoading(false)
-                }, 4000);
-            }, 
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    setImageAsset(downloadURL);
-                    setIsLoading(false);
-                    setFields(true);
-                    setMsg('Image uploaded successfully 😊😊');
-                    setAlertStatus("success");
-                    setTimeout(() => {
-                        setFields(false);
-                    }, 4000);
-                });
-            }
+          "state_changed",
+          (snapshot) => {
+            const uploadProgress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          },
+          (error) => {
+            console.log(error);
+            setFields(true);
+            setMsg("Error while uploading : Try again 🙇");
+            toast.danger("Error while uploading : Try again 🙇");
+            setAlertStatus("danger");
+            setTimeout(() => {
+              setFields(false);
+              setIsLoading(false);
+            }, 4000);
+          },
+          () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+              setImageAsset(downloadURL);
+              setIsLoading(false);
+              setFields(true);
+              setMsg("Image uploaded to successfully 😊");
+              toast.danger("Image uploaded to successfully 😊");
+              setAlertStatus("success");
+              setTimeout(() => {
+                setFields(false);
+              }, 4000);
+            });
+          }
         );
-    };
+      };
 
-    const deleteImage = () => {
+      const deleteImage = () => {
         setIsLoading(true);
-        const deleteRef = ref (storage, imageAsset);
-        deleteObject(deleteRef).then(() => {
+        const deleteRef = ref(storage, imageAsset);
+        deleteObject(deleteRef)
+          .then(() => {
             setImageAsset(null);
             setIsLoading(false);
             setFields(true);
-            setMsg('Image deleted successfully 😊😊');
+            setMsg("Image deleted  successfully 😊");
+            toast.danger("Image deleted  successfully 😊");
             setAlertStatus("success");
             setTimeout(() => {
-                setFields(false);
+              setFields(false);
             }, 4000);
-        });
-    };
+          })
+          .catch((error) => {
+            console.log(error);
+            setFields(true);
+            setMsg("Error while deleting : Try again 🙇");
+            toast.danger("Error while deleting : Try again 🙇");
+            setAlertStatus("danger");
+            setTimeout(() => {
+              setFields(false);
+              setIsLoading(false);
+            }, 4000);
+          });
+      };
 
     const saveDetails = () => {
         setIsLoading(true);
@@ -81,6 +97,7 @@ const CreateContainer = () => {
             if((!title || !calories || !price || !category)){
                 setFields(true);
                 setMsg("Reuired fields can't be empty : Try Again 😟😥");
+                toast.danger("Reuired fields can't be empty : Try Again 😟😥");
                 setAlertStatus("danger");
                 setTimeout(() => {
                     setFields(false)
@@ -100,6 +117,7 @@ const CreateContainer = () => {
                 setIsLoading(false);
                 setFields(true);
                 setMsg("Data upload successfully 😊😊🤑");
+                toast.success("Data upload successfully 😊😊🤑");
                 setAlertStatus("success");
                 setTimeout(() => {
                     setFields(false)
@@ -172,41 +190,48 @@ const CreateContainer = () => {
                     </select>
                 </div>
                 {/* duongg */}
-                <div className='w-full py-2 border-b border-gray-300 flex items-center gap-2'>
-                    <a href='https://cloudinary.com/console/c-629aab4cdbd7e86baacabc8cd53c9d/media_library/folders/c0ffe9323f8954738ae424af0b46d79626'><MdCloudUpload className='text-gray-700 text-2xl'/></a>
-                    <input type="text" required 
-                    value={calories} onChange={(e) => setCalories(e.target.value)}
-                    placeholder='Clound Image (password: Dungttt@2307' className='w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-300 text-textColor'></input>
-                </div>
-               
+                <div className="group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-225 md:h-300 cursor-pointer">
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <>
+                {!imageAsset ? (
+                  <label className="w-full h-full flex flex-col items-center justify-center cursor-pointer">
+                    <div className="w-full h-full flex flex-col items-center justify-center">
+                      <MdCloudUpload className="text-gray-500 group-hover:text-gray-700 text-3xl" />
+                      <p className="text-gray-500 group-hover:text-gray-700">
+                        Click here to upload
+                      </p>
+                    </div>
+                    <input
+                      type="file"
+                      name="upload-image"
+                      accept="image/*"
+                      onChange={uploadImage}
+                      className="w-0 h-0"
+                    />
+                  </label>
+                ) : (
+                  <div className="relative h-full">
+                    <img
+                      src={imageAsset}
+                      alt=""
+                      className="h-full w-full object-cover"
+                    />
+                    <button
+                      type="button"
+                      className="absolute bottom-3 right-3 p-3 rounded-full bg-red-500 text-xl
+                  cursor-pointer outline-none hover:shadow-md duration-500 transition-all ease-in-out"
+                      onClick={deleteImage}
+                    >
+                        <MdDelete className="text-white" />
+                    </button>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
                 {/* duongg */}
-                <div className='group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-225 md:h-420 cursor-pointer rounded-lg'>
-                    {isLoading 
-                    ? <Loader/> 
-                    : <>
-                            {!imageAsset 
-                                ? (<>
-                                    <label className='w-full h-full flex flex-col items-center justify-center cursor-pointer'>
-                                        <div className='w-full h-full flex flex-col items-center justify-center gap-2'><MdCloudUpload className='text-gray-500 text-3xl hover:text-gray-700'/>
-                                        <p className='text-gray-500 hover:text-gray-700'> Click here to upload
-                                            </p></div>
-                                            <input type='file' name='uploadimage' accept="Images/*" onChange={uploadImage} className='w-0 h-0'></input>
-                                    </label>
-                                </> 
-                                ) : ( 
-                                    <>
-                                        <div className='relative h-full'>
-                                            <img src={imageAsset} alt="uploadedimage" className='w-full h-full object-cover'/>
-                                            <button type="button" className='absolute bottom-3 right-3 p-3 rounded-full bg-red-500 text-xl cursor-pointer outline-none hover:shadow-md duration-500 transition-all ease-in-out'
-                                            onClick={deleteImage}>
-                                                <MdDelete className='text-white'/>
-                                            </button>
-                                        </div>
-                                    </>
-                                )}
-                        </>
-                        }
-                </div>
                 <div className='w-full flex flex-col md:flex-row items-center gap-3'>
                     <div className='w-full py-2 border-b border-gray-300 flex items-center gap-2'>
                         <MdOutlineLocalDrink className='text-gray-700 text-2xl'/>
@@ -223,6 +248,17 @@ const CreateContainer = () => {
                     <button type="button" className='ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-emerald-500 px-12 py-2 rounded-lg text-lg text-white font-semibold' onClick={saveDetails}>Save</button>
                 </div>
             </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
         </div>
     );
 };

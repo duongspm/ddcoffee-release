@@ -4,9 +4,6 @@ import {motion} from 'framer-motion';
 import NotFound from '../assets/imgs/NotFound.svg';
 import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
-
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import NumberFormat from 'react-number-format';
 
 
@@ -68,17 +65,7 @@ const RowContainerRelease = ({flag, data, scrollValue}) => {
             <img src={NotFound} alt="notfound" className='h-340'/>
             <p className='text-xl text-headingColor'>Items Not Available</p>
         </div>}
-        <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                />
+        
         </div>
     );
 };
