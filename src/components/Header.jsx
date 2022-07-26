@@ -9,7 +9,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from '../firebase.config';
 import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
-import { BiCaretDown } from 'react-icons/bi';
+//import {Link} from 'react-scroll';
 
 const Header = () => {
     const firebaseAuth = getAuth(app);
@@ -65,7 +65,7 @@ const Header = () => {
                         exit={{opacity: 0, x: 200}}
                         className="flex items-center gap-8 ">
                         <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer'>Home</li>
-                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}>Menu</li>
+                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Link to='menu' span={true} smooth={true}>Menu</Link></li>
                         <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}>About Us</li>
                         <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}>Blog</li>
                     </motion.ul>    

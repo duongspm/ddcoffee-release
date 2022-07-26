@@ -1,0 +1,8 @@
+- amination: 
+    const transition = {type: "spring", duration: 3};
+    <motion.div
+        initial={{opacity,x: -100}}
+        transition={{...transition, duration: 2}}
+        whileInView={{opacity: 1, x: 0}}>
+    </motion.div>
+

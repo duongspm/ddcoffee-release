@@ -8,6 +8,7 @@ import { useStateValue } from './context/StateProvider';
 import { getALlDrinkItems } from './utils/firebaseFunctions';
 import { useEffect } from 'react';
 import { actionType } from './context/reducer';
+import MenuContainer from './components/MenuContainer';
 
 //mongodb
 // import {Provider} from 'react-redux';
@@ -37,6 +38,8 @@ function App() {
           <Routes>
             <Route path='/*' element={<MainContainer/>}></Route>
             <Route path='/createItem' element={<CreateContainer/>}></Route>
+            <Route path='/home' element={<MainContainer/>}></Route>
+            <Route path='/home' element={<MenuContainer/>}></Route>
           </Routes>
         </main>
       </div>
