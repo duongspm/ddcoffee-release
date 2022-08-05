@@ -9,7 +9,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from '../firebase.config';
 import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
-//import {Link} from 'react-scroll';
+import {Link as Linkk} from 'react-scroll';
 
 const Header = () => {
     const firebaseAuth = getAuth(app);
@@ -64,10 +64,10 @@ const Header = () => {
                         animate={{opacity: 1, x: 0}}
                         exit={{opacity: 0, x: 200}}
                         className="flex items-center gap-8 ">
-                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer'>Home</li>
-                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Link to='menu' span={true} smooth={true}>Menu</Link></li>
-                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}>About Us</li>
-                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}>Blog</li>
+                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer'><Linkk to='home' span={true} smooth={true}>Home</Linkk></li>
+                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Linkk to='menu' span={true} smooth={true}>Menu</Linkk></li>
+                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Linkk to='about' span={true} smooth={true}>About Us</Linkk></li>
+                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Linkk to='blog' span={true} smooth={true}>Blog</Linkk></li>
                     </motion.ul>    
                     <div className='relative flex items-center justify-center' onClick={showCart}>
                         <MdCoffeeMaker className='text-textColor text-2xl ml-8 cursor-pointer'></MdCoffeeMaker>
@@ -144,9 +144,9 @@ const Header = () => {
                                         )
                                     }
                                     <ul className="flex flex-col">
-                                        <li className='text-base text-textColor hover:text-cartNumBg duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'>Home</li>
-                                        <li className='text-base text-textColor hover:text-cartNumBg duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'>Menu</li>
-                                        <li className='text-base text-textColor hover:text-cartNumBg duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'>About Us</li>
+                                        <li className='text-base text-textColor hover:text-cartNumBg duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'><Linkk to='home' span={true} smooth={true}>Home</Linkk></li>
+                                        <li className='text-base text-textColor hover:text-cartNumBg duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'><Linkk to='menu' span={true} smooth={true}>Menu</Linkk></li>
+                                        <li className='text-base text-textColor hover:text-cartNumBg duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'><Linkk to='about' span={true} smooth={true}>About Us</Linkk></li>
                                     </ul>
                                     <hr/>
                                     <Link to={'/info'}>

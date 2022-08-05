@@ -9,6 +9,8 @@ import { getALlDrinkItems } from './utils/firebaseFunctions';
 import { useEffect } from 'react';
 import { actionType } from './context/reducer';
 import MenuContainer from './components/MenuContainer';
+//Chat Messenger
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 //mongodb
 // import {Provider} from 'react-redux';
@@ -39,9 +41,13 @@ function App() {
             <Route path='/*' element={<MainContainer/>}></Route>
             <Route path='/createItem' element={<CreateContainer/>}></Route>
             <Route path='/home' element={<MainContainer/>}></Route>
-            <Route path='/home' element={<MenuContainer/>}></Route>
+            <Route path='/menu' element={<MenuContainer/>}></Route>
           </Routes>
         </main>
+        <MessengerCustomerChat 
+          pageId="106366635493290" 
+          appId="577136293907818"
+        />,
       </div>
     </AnimatePresence>
   );

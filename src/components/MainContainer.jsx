@@ -8,6 +8,7 @@ import MenuContainer from './MenuContainer';
 import RowContainerRelease from './RowContainerRelease';
 import CartContainer from './CartContainer';
 import {CartProvider} from 'react-use-cart';
+import EmailSubmit from './Email/EmailSubmit';
 const MainContainer = () => {
     const [{drinkItems, cartShow}, dispatch] = useStateValue();
     const [scrollValue, setScrollValue] = useState(0);
@@ -15,8 +16,7 @@ const MainContainer = () => {
     useEffect(() => {}, [scrollValue, cartShow]);
 
     return (
-        <div className='w-full h-auto flex flex-col items-center justify-center'>
-
+        <div id='home' className='w-full h-auto flex flex-col items-center justify-center'>
             <HomeContainer/>
             {/* Start category */}
             <section className="w-full my-6">
@@ -46,6 +46,8 @@ const MainContainer = () => {
                 {/* End Menu */}
                 {cartShow && <CartContainer/> }
             </CartProvider>
+            <hr/>
+            <EmailSubmit/>
         </div>
     );
 };

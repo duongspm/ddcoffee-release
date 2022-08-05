@@ -2,7 +2,8 @@ import React from 'react';
 import {motion} from "framer-motion";
 import delivery from '../assets/imgs/delivery.png';
 import HeroBg from '../assets/imgs/bg-green.png';
-import heroData from '../utils/data'
+import heroData from '../utils/data';
+import {MdCall} from 'react-icons/md';
 
 const HomeContainer = () => {
     const transition = {type: "spring", duration: 3};
@@ -10,7 +11,8 @@ const HomeContainer = () => {
         <section id="home" className='grid grid-cols-1 md:grid-cols-2 gap-2 w-full'>
             <div className='py-2 flex flex-1 flex-col items-start  justify-center gap-8'>
                 <div className='flex items-center gap-2 justify-center'>
-                    <p className='text-base text-green-800 font-semibold bg-green-100 px-4 py-1 rounded-full'>Bike Delivery</p>
+                    <p className='text-base text-green-800 font-semibold bg-green-100 px-4 py-1 rounded-full'><MdCall/></p>
+                    <p className='text-base text-green-800 font-semibold bg-green-100 px-4 py-1 rounded-full'>Order Now: 0396752611</p>
                     <motion.div
                         initial={{opacity: 0,x: -100}}
                         transition={{...transition, duration: 2}}
@@ -20,7 +22,7 @@ const HomeContainer = () => {
                     </motion.div>
                 </div>
                 <p className='text-[2.5rem] font-bold tracking-wide text-headingColor lg:text-[4.5rem]'>The Fastest Delivery in <span className='text-green-800 text-[3rem] lg:text-[5rem]'>Your City</span></p>
-                <p className='text-base text-textColor text-center md:text-left md:w-[80%]'>People drink coffee to relieve mental and physicl fatigue and to increase metal alertness. Coffee is also used to prevent. Parkison's disease gallstones, type 2 diabetes</p>
+                <p className='text-base text-textColor text-center md:text-left md:w-[80%]'>Money buys Coffee, Coffee makes Me Happy!. People drink coffee to relieve mental and physicl fatigue and to increase metal alertness. Coffee is also used to prevent. Parkison's disease gallstones, type 2 diabetes</p>
                 <button type='button' className='bg-gradient-to-br from-green-600 to-green-800 w-full px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out md:w-auto text-white'>BUY NOW</button>
             </div>
             <div className='py-2 flex-1 flex items-center relative'>
