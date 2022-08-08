@@ -1,17 +1,19 @@
-import React from 'react';
-import {motion} from 'framer-motion';
+import React, { useContext, useEffect, useState } from 'react';
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { MdRunCircle } from 'react-icons/md';
-
-import { useStateValue } from '../context/StateProvider';
-import { actionType } from '../context/reducer';
 import EmptyCart from '../assets/imgs/emptyCart.svg';
 import CartItem from './CartItem';
+import {motion} from 'framer-motion';
+import { useStateValue } from '../context/StateProvider';
+import { actionType } from '../context/reducer';
 import NumberFormat from 'react-number-format';
 
-const CartContainer = () => {
-    const [{cartShow, cartItems, user}, dispatch] = useStateValue();
+const CartContainer = ({ cartMenu, setCartMenu }) => {
+    const [{cartShow, cartItems, user, total, drinkItems}, dispatch] = 
+    useStateValue();
 
+    const [flag, setFlag] = useState(1);
+    const [tot, setTot] = useState(0);
     const showCart = () => {
         dispatch({
             type: actionType.SET_CART_SHOW,
@@ -19,6 +21,13 @@ const CartContainer = () => {
         });
     }
 
+    useEffect(() => {
+        let totalPrice = cartItems.reduce(function (accumulator, item) {
+          return accumulator + item.qty * item.price;
+        }, 0);
+        setTot(totalPrice);
+        console.log(tot);
+    }, [tot, flag]);
     const clearCart = () => {
         dispatch({
             type: actionType.SET_CARTITEMS,
@@ -55,7 +64,8 @@ const CartContainer = () => {
 
                     {/*Cart item */}
                     {cartItems && cartItems.map (item => (
-                        <CartItem key={item.id} item={item} />
+                        <CartItem key={item.id} item={item} setFlag={setFlag}
+                        flag={flag}/>
                     ))} 
                 </div>
                 {/**Cart total section */}
@@ -63,7 +73,7 @@ const CartContainer = () => {
                     <div className='w-full flex items-center justify-between'>
                         <p className='text-gray-400 text-lg'>Sub Total</p>
                         <NumberFormat 
-                            value={222222}
+                            value={tot}
                             displayType="text"
                             thousandSeparator
                             renderText={(value) => <p  className='text-gray-400 text-lg'> {value} VND</p>}
@@ -71,14 +81,25 @@ const CartContainer = () => {
                     </div>
                     <div className='w-full flex items-center justify-between'>
                         <p className='text-gray-400 text-lg'>Delivery</p>
-                        <p className='text-gray-400 text-lg'>15.000 VND</p>
+                        <NumberFormat 
+                            value={15000}
+                            displayType="text"
+                            thousandSeparator
+                            renderText={(value) => <p  className='text-gray-400 text-lg'> {value} VND</p>}
+                        />
                     </div>
                     
                     <div className='w-full border-b border-gray-600 my-2'></div>
 
                     <div className='w-full flex items-center justify-between'>
                         <p className='text-gray-200 text-xl'>Total</p>
-                        <p className='text-gray-200 text-xl'>222.222 VND</p>
+                        
+                        <NumberFormat 
+                            value={tot + 15000}
+                            displayType="text"
+                            thousandSeparator
+                            renderText={(value) => <p  className='text-gray-200 text-xl'> {value} VND</p>}
+                        />
                     </div>
                     {user ? (
                         <motion.button whileTap={{scale: 0.8}} type="button" className='w-full p-2 rounded-full bg-colorGreen text-gray-50 text-lg my-2 hover:shadow-lg '>

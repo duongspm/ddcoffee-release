@@ -9,6 +9,7 @@ import RowContainerRelease from './RowContainerRelease';
 import CartContainer from './CartContainer';
 import {CartProvider} from 'react-use-cart';
 import EmailSubmit from './Email/EmailSubmit';
+import Footer from './Footer/Footer';
 const MainContainer = () => {
     const [{drinkItems, cartShow}, dispatch] = useStateValue();
     const [scrollValue, setScrollValue] = useState(0);
@@ -46,7 +47,7 @@ const MainContainer = () => {
                 {/* End Menu */}
                 {cartShow && <CartContainer/> }
             </CartProvider>
-            <hr/>
+            <Footer/>
             <EmailSubmit/>
         </div>
     );

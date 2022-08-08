@@ -3,7 +3,7 @@ import {motion} from "framer-motion";
 import {Link} from 'react-router-dom';
 import {MdCoffee} from 'react-icons/md';
 import {MdCoffeeMaker, MdAdd, MdLogout, MdAccountCircle} from 'react-icons/md';
-//import Logo from '../assets/imgs/logo-dendo-cocaybua.png';
+import Logo from '../assets/imgs/logo-3.png';
 import Avatar from '../assets/imgs/avatar.png';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from '../firebase.config';
@@ -53,9 +53,9 @@ const Header = () => {
         <header className='fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-primary'>
             {/* desktop */}
             <div className='hidden md:flex w-full h-full items-center justify-between'>
-                <Link to={"/"} className='flex items-center gap-2'>
-                    {/* <img src={Logo} className="w-16 object-cover" alt="Logo nef"/> */}
-                    <MdCoffee className='w-16 object-cover cursor-pointer text-6xl hover:text-cartNumBg'></MdCoffee>
+                <Link to={"/"} className='flex items-center gap-3'>
+                    <img src={Logo} className="w-8 object-cover mb-4" alt="Logo nef"/>
+                    {/* <MdCoffee className='w-16 object-cover cursor-pointer text-6xl hover:text-cartNumBg'></MdCoffee> */}
                     <motion.p whileTap={{scale: 0.6}}  className='text-headingColor text-xl font-bold'><span className='text-green-800'>DD</span> Coffee & Tea</motion.p>
                 </Link>
                 <div className='flex items-center gap-8'> {/* bo ra ngoai div nay thi no se nam giua */}
@@ -119,8 +119,8 @@ const Header = () => {
                         )}
                 </div>
                 <Link to={"/"} className='flex items-center gap-2'>
-                    {/* <img src={Logo} className="w-16 object-cover" alt="Logo nef"/> */}
-                    <MdCoffee className='w-16 object-cover cursor-pointer text-6xl hover:text-cartNumBg'></MdCoffee>
+                    <img src={Logo} className="w-8 object-cover " alt="Logo nef"/>
+                    {/* <MdCoffee className='w-16 object-cover cursor-pointer text-6xl hover:text-cartNumBg'></MdCoffee> */}
                     <motion.p whileTap={{scale: 0.6}}  className='text-headingColor text-xl font-bold'>DD Cup & Tea</motion.p>
                 </Link>
                 
