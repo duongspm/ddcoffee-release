@@ -50,7 +50,7 @@ const RowContainerRelease = ({flag, data, scrollValue}) => {
                 </div>
                 <div className='w-full flex flex-col items-end justify-end'>
                     <p className='text-textColor font-semibold text-base md:text-lg'>{item?.title}</p>
-                    <p className='mt-1 text-sm text-gray-500'>{item?.calories} Calories</p>
+                    {/* <p className='mt-1 text-sm text-gray-500'>{item?.calories} Calories</p> */}
                     <div className='flex items-center gap-8'>
                         <NumberFormat 
                                 value={item?.price}

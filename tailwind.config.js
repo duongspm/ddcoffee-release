@@ -47,7 +47,9 @@ module.exports = {
         textColor:"#515151",
         cartNumBg:"#e80013",
         //primary:"#f5f3f3",
-        primary:"#DFF2E4",
+        primary:"#DFF2E4", //bg nền 
+        nendamhon:"#AED4B8",
+        backgroundfooter:"#006341",
         // textColor: "#101010",
         // activeText: "#D6230A",B4DCCC
         gradientBg: "rgba(116, 249, 105,0.4)",
