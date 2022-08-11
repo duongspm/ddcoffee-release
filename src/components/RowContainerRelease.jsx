@@ -32,11 +32,12 @@ const RowContainerRelease = ({flag, data, scrollValue}) => {
     }, [scrollValue]);
 
     const result4 = (data || []).length;
-
+    // w-275 h-auto min-w-[275px] md:min-w-[300px] md:w-300 bg-cardOverlay rounded-lg p-2 px-4 my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-between relative'>
+    // <div className='w-full flex items-center justify-between
     return (
         <div ref={rowContainer} className={`w-full my-12 flex gap-3 items-center scroll-smooth ${flag ? "overflow-x-scroll scrollbar-none" : "overflow-x-hidden flex-wrap justify-center"}`}>
             {result4 > 0 ? data.map((item) => (
-            <div key={item.id} className='w-275 h-auto min-w-[275px] md:min-w-[300px] md:w-300 bg-cardOverlay rounded-lg p-2 px-4 my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-between relative'>
+            <div key={item.id} className='w-225 h-auto min-w-[225px] md:min-w-[250px] md:w-225 bg-cardOverlay rounded-lg p-2 px-4 my-4 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-between relative'>
                 <div className='w-full flex items-center justify-between'>
                     {/* src={item?.imageURL} */}
                     <motion.div whileHover={{scale:1.2}} className="w-40 h-40 -mt-8 drop-shadow-2xl">
@@ -50,7 +51,7 @@ const RowContainerRelease = ({flag, data, scrollValue}) => {
                 </div>
                 <div className='w-full flex flex-col items-end justify-end'>
                     <p className='text-textColor font-semibold text-base md:text-lg'>{item?.title}</p>
-                    <p className='mt-1 text-sm text-gray-500'>{item?.calories} Calories</p>
+                    {/* <p className='mt-1 text-sm text-gray-500'>{item?.calories} Calories</p> */}
                     <div className='flex items-center gap-8'>
                         <NumberFormat 
                                 value={item?.price}
