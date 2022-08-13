@@ -8,7 +8,6 @@ import MenuContainer from './MenuContainer';
 import RowContainerRelease from './RowContainerRelease';
 import CartContainer from './CartContainer';
 import {CartProvider} from 'react-use-cart';
-import Footer from './Footer/Footer';
 import Contact from './Contact/Contact';
 import FooterRelease from './Footer/FooterRelease';
 const MainContainer = () => {

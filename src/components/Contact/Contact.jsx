@@ -14,10 +14,10 @@ const Contact = () => {
                         LET'S TALK
                     </div>
                     <div>
-                        <div className='text-sm text-gray-500 sm:text-center dark:text-gray-400'>
+                        <div className='text-sm text-gray-500 sm:text-center'>
                             Phone: <a href="tel:0396752611">0396752611</a>
                         </div>
-                        <div className='text-sm text-gray-500 sm:text-center dark:text-gray-400 mt-'>
+                        <div className='text-sm text-gray-500 sm:text-center mt-'>
                             <a href="tel:0328818203">0328818203</a>
                         </div>
                     </div>
@@ -31,10 +31,10 @@ const Contact = () => {
                         email
                     </div>
                     <div>
-                        <div className='text-sm text-gray-500 sm:text-center dark:text-gray-400'>
+                        <div className='text-sm text-gray-500 sm:text-center'>
                             <a href="mailto:duongtv0711@gmail.com">duongtv0711@gmail.com</a>
                         </div>
-                        <div className='text-sm text-gray-500 sm:text-center dark:text-gray-400 mt-'>
+                        <div className='text-sm text-gray-500 sm:text-center mt-'>
                             ddcoffee@gmail.com
                         </div>
                     </div>
@@ -47,7 +47,7 @@ const Contact = () => {
                         Address
                     </div>
                     <div>
-                        <div className='text-sm text-gray-500 sm:text-center dark:text-gray-400'>
+                        <div className='text-sm text-gray-500 sm:text-center'>
                             392/29A khu 4, Lê Hồng Phong, Phú Hòa, Thủ Dầu Một, Bình Dương
                         </div>
                     </div>
@@ -60,7 +60,7 @@ const Contact = () => {
                         Page
                     </div>
                     <div className='mb-8'>
-                        <div className='text-sm text-gray-500 sm:text-center dark:text-gray-400'>
+                        <div className='text-sm text-gray-500 sm:text-center'>
                             Facebook: DD Coffee & Tea
                         </div>
                     </div>
