@@ -11,6 +11,7 @@ import { actionType } from './context/reducer';
 import MenuContainer from './components/MenuContainer';
 //Chat Messenger
 import MessengerCustomerChat from 'react-messenger-customer-chat';
+import Home from './components/admin/Home/HomeAdmin';
 
 //mongodb
 // import {Provider} from 'react-redux';
@@ -42,6 +43,7 @@ function App() {
             <Route path='/createItem' element={<CreateContainer/>}></Route>
             <Route path='/home' element={<MainContainer/>}></Route>
             <Route path='/menu' element={<MenuContainer/>}></Route>
+            <Route path='/admin' element={<Home/>}></Route>
           </Routes>
         </main>
         <MessengerCustomerChat 

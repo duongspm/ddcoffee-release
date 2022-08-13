@@ -15,3 +15,10 @@ export const getALlDrinkItems = async () => {
     );
     return items.docs.map((doc) => doc.data());
 };
+
+//saving email
+export const saveEmail = async(data) => {
+    await setDoc(doc(firestore,"Email", `${Date.now()}`), data,{
+        merge: true,
+    });
+};
