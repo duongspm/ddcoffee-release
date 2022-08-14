@@ -3,6 +3,7 @@ import React from 'react'
 import EmailAdmin from '../EmailAdmin/EmailAdmin';
 import {MdMarkEmailRead} from 'react-icons/md';
 import Sidebar from '../Sidebar/Sidebar';
+import FeedbackAdmin from '../FeedbackAdmin/FeedbackAdmin';
 
 function Home() {
     return (
@@ -16,7 +17,9 @@ function Home() {
                     <div className="w-full px-4 py-5 bg-white rounded-lg shadow mt-2">
                         <EmailAdmin/>
                     </div>
-
+                    <div className="w-full px-4 py-5 bg-white rounded-lg shadow mt-2">
+                        <FeedbackAdmin/>
+                    </div>
                 </div>
                 
             </div>

@@ -22,3 +22,19 @@ export const saveEmail = async(data) => {
         merge: true,
     });
 };
+
+
+//saving feedback
+export const saveFeedback = async(data) => {
+    await setDoc(doc(firestore,"feedback", `${Date.now()}`), data,{
+        merge: true,
+    });
+};
+
+//get all feedback
+export const getALlFeedBack = async () => {
+    const items = await getDocs (
+        query(collection(firestore, "feedback"), orderBy("id","desc"))
+    );
+    return items.docs.map((doc) => doc.data());
+};

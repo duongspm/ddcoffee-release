@@ -147,8 +147,8 @@ const CreateContainer = () => {
     const fetchData = async() => {
         await getALlDrinkItems().then ((data) => {
             dispatch({
-            type : actionType.SET_DRINK_ITEMS,
-            drinkItems : data,
+              type : actionType.SET_DRINK_ITEMS,
+              drinkItems : data,
             });
         });
     };
