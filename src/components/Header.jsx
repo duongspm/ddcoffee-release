@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {motion} from "framer-motion";
 import {Link} from 'react-router-dom';
 import {MdCoffee} from 'react-icons/md';
-import {MdCoffeeMaker, MdAdd, MdLogout, MdAccountCircle} from 'react-icons/md';
+import {MdCoffeeMaker, MdAdd, MdLogout, MdAccountCircle, MdOutlineAdminPanelSettings} from 'react-icons/md';
 import Logo from '../assets/imgs/logo-3.png';
 import Avatar from '../assets/imgs/avatar.png';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -99,6 +99,9 @@ const Header = () => {
                                     <Link to={'/info'}>
                                         <p className='px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base'><MdAccountCircle/>{user ? user.displayName : 'In4'} </p>
                                     </Link>
+                                    <Link to={'/admin'}>
+                                        <p className='px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base'><MdOutlineAdminPanelSettings/> Admin </p>
+                                    </Link>
                                     <hr/>
                                     <p className='px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base' onClick={logout}><MdLogout/> Logout </p>
                                 </motion.div>
@@ -151,6 +154,9 @@ const Header = () => {
                                         <li className='text-base text-textColor hover:text-cartNumBg duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'><Linkk to='about' span={true} smooth={true}>About Us</Linkk></li>
                                     </ul>
                                     <hr/>
+                                    <Link to={'/admin'}>
+                                        <p className='px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base justify-center'><MdOutlineAdminPanelSettings/> Admin </p>
+                                    </Link>
                                     <Link to={'/info'}>
                                         <p className='px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base justify-center'><MdAccountCircle/> In4 </p>
                                     </Link>

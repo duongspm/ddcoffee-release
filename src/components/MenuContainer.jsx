@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {MdLocalDrink} from 'react-icons/md';
 import { categories } from '../utils/data';
 import {motion} from 'framer-motion';
-import RowContainer from './RowContainer';
 import { useStateValue } from '../context/StateProvider';
 import RowContainerRelease from './RowContainerRelease';
 
