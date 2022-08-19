@@ -4,7 +4,6 @@ import {useEffect} from 'react';
 import { useState } from 'react';
 import { firestore } from '../../../firebase.config';
 import {collection,deleteDoc,doc,getDocs} from 'firebase/firestore';
-import { list } from 'firebase/storage';
 
 function FeedbackAdmin() {
     const [feedbacks, setFeedbacks] = useState([]);

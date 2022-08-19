@@ -11,6 +11,7 @@ import {CartProvider} from 'react-use-cart';
 import Contact from './Contact/Contact';
 import FooterRelease from './Footer/FooterRelease';
 import Feedback from './Feedback/Feedback';
+import SliderFeedback from './Feedback/SliderFeedback';
 const MainContainer = () => {
     const [{drinkItems, cartShow}, dispatch] = useStateValue();
     const [scrollValue, setScrollValue] = useState(0);
@@ -49,6 +50,7 @@ const MainContainer = () => {
                 {cartShow && <CartContainer/> }
             </CartProvider>
             <Feedback/>
+            <SliderFeedback/>
             <Contact/>
             <FooterRelease/>
         </div>

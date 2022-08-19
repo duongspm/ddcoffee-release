@@ -39,6 +39,8 @@ const FooterRelease = () => {
                         <span class="sr-only">Dribbbel account</span>
                     </a>
                 </div>
+                <span class="block font-thin text-sm text-gray-300 sm:text-center pt-5">Số lượng truy cập: <span id="visits"></span>
+                </span>
             </footer>
         </div>
     );

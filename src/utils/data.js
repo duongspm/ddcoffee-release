@@ -4,9 +4,9 @@ import I3 from '../assets/imgs/chuoi.png';
 import I4 from '../assets/imgs/dau.png';
 const heropData = [
     {id : 1, name: 'Cafe', decp : 'Cafen Den', price : '25.000', imageSrc : I1},
-    {id : 2, name: 'Tra', decp : 'Tac Mac Ong', price : '30.000', imageSrc : I2},
-    {id : 3, name: 'Da Xay', decp : 'Chocolate Da Xay', price : '30.000', imageSrc : I3},
-    {id : 4, name: 'Sinh To', decp : 'Sinh To Chuoi', price : '35.000', imageSrc : I4},
+    {id : 2, name: 'Trà', decp : 'Tac Mac Ong', price : '30.000', imageSrc : I2},
+    {id : 3, name: 'Đá xay', decp : 'Chocolate Da Xay', price : '30.000', imageSrc : I3},
+    {id : 4, name: 'Sinh tố', decp : 'Sinh To Chuoi', price : '35.000', imageSrc : I4},
 ];
 export default heropData;
 export const categories = [
@@ -17,17 +17,37 @@ export const categories = [
     },
     {
         id: 2,
-        name: "Tra",
+        name: "Trà",
         urlParamName: "tra",
     },
     {
         id: 3,
-        name: "Nuoc Ep",
+        name: "Nước ép",
         urlParamName: "nuoc ep",
     },
     {
         id: 4,
-        name: "Sinh To",
+        name: "Sinh Tố",
         urlParamName: "sinh to",
+    },
+    {
+        id: 5,
+        name: "Sữa chua",
+        urlParamName: "sua chua",
+    },
+    {
+        id: 6,
+        name: "Đá xay",
+        urlParamName: "da xay",
+    },
+    {
+        id: 7,
+        name: "Trà sữa",
+        urlParamName: "tra sua",
+    },
+    {
+        id: 8,
+        name: "Topping",
+        urlParamName: "topping",
     },
 ];

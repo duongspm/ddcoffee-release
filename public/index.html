@@ -14,7 +14,14 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <link rel="shortcut icon" type="image/png" href="./logo.png"/>
-
+    <!-- đếm  -->
+    <script>
+      function cb(response) {
+          document.getElementById('visits').innerText = response.value;
+      }
+      </script>
+      <script async src="https://api.countapi.xyz/hit/ddcoffee-release.vercel.app/visits?callback=cb"></script>
+    <!-- đếm -->
     <title>DD Coffee & Tea</title>
   </head>
   <body>
