@@ -67,7 +67,7 @@ const Header = () => {
                         <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer'><Linkk to='home' span={true} smooth={true}>Home</Linkk></li>
                         <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Linkk to='menu' span={true} smooth={true}>Menu</Linkk></li>
                         <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Linkk to='about' span={true} smooth={true}>About Us</Linkk></li>
-                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Linkk to='blog' span={true} smooth={true}>Blog</Linkk></li>
+                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Linkk to='feedback' span={true} smooth={true}>Feedback</Linkk></li>
                     </motion.ul>    
                     <div className='relative flex items-center justify-center' onClick={showCart}>
                         <MdCoffeeMaker className='text-textColor text-2xl ml-8 cursor-pointer'></MdCoffeeMaker>
@@ -152,6 +152,7 @@ const Header = () => {
                                         <li className='text-base text-textColor hover:text-cartNumBg duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'><Linkk to='home' span={true} smooth={true}>Home</Linkk></li>
                                         <li className='text-base text-textColor hover:text-cartNumBg duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'><Linkk to='menu' span={true} smooth={true}>Menu</Linkk></li>
                                         <li className='text-base text-textColor hover:text-cartNumBg duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'><Linkk to='about' span={true} smooth={true}>About Us</Linkk></li>
+                                        <li className='text-base text-textColor hover:text-cartNumBg duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'><Linkk to='feedback' span={true} smooth={true}>Feedback</Linkk></li>
                                     </ul>
                                     <hr/>
                                     <Link to={'/admin'}>

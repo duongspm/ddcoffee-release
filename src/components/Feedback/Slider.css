@@ -6,8 +6,8 @@
     transition: transform 300ms;
     opacity: 0.5;
 }
-.slide img{
-    width: 20rem;
+.hinhfeedback{
+    width: 15rem;
     margin: 0 auto;
 }
 .activeSlide{
@@ -15,7 +15,7 @@
     opacity: 1;
 }
 .arrow {
-    background-color: #fff;
+    /* background-color: #fff; */
     position: absolute;
     cursor: pointer;
     z-index: 10;
@@ -24,7 +24,7 @@
     transition: color 300ms;
 }
 .arrow svg:hover{
-    color: #68edff;
+    color: green;
 }
 .next {
     right: 0%;

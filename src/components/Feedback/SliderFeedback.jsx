@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {useState} from 'react'
 import f4 from '../../assets/imgs/f4.png';
 import f5 from '../../assets/imgs/f5.png';
@@ -7,22 +7,25 @@ import cam from '../../assets/imgs/cam.png';
 import Slider from "react-slick";   
 import './Slider.css';
 import {FaArrowRight, FaArrowLeft} from 'react-icons/fa';
-
+import IconFeedback from '../../assets/imgs/iconfeedback.png';
+import { collection, getDocs } from 'firebase/firestore';
+import { firestore } from '../../firebase.config';
+import {MdArrowBackIosNew, MdArrowForwardIos} from 'react-icons/md'
 const images = [f4,f5,f6,cam];
 
 function SliderFeedback() {
                     // onclick
     const NextArrow = ({onClick}) =>{
         return(
-            <div className='bg-blue-300 arrow next' onClick={onClick}>
-                <FaArrowRight/>
+            <div className='arrow next text-4xl' onClick={onClick}>
+                <MdArrowForwardIos/>
             </div>
         )
     }
     const PrevArrow = ({onClick}) =>{
         return(
-            <div className='bg-red-800 arrow prev' onClick={onClick}>
-                <FaArrowLeft/>
+            <div className=' arrow prev text-4xl' onClick={onClick}>
+                <MdArrowBackIosNew/>
             </div>
         )
     }
@@ -41,15 +44,75 @@ function SliderFeedback() {
         beforeChange: (current, next) => setImageIndex(next)
     };
 
+    const [feedbacks, setFeedbacks] = useState([]);
+    useEffect(() => {
+        try{
+            getFeedbacks()
+        }catch(err){
+            console.log("loiii"+err);
+        }
+
+    },[])
+    useEffect (() =>{
+        console.log(feedbacks)
+    })
+    const getFeedbacks = () => {
+        const feedbackCollectionRef = collection(firestore, "feedback")
+        getDocs(feedbackCollectionRef)
+            .then(response => {
+                console.log(response)
+                const feedbacks = response.docs.map(doc => ({
+                    data: doc.data(),
+                    id: doc.id
+                }))
+                setFeedbacks(feedbacks);
+            })
+            .catch(error => console.log(error.message))
+    }
     return (
-        <div className='w-full'>
+        <div className='w-full my-16 h-full'>
+            <div className='my-12'>
+                <p className='text-3xl font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-64 before:h-1 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-green-600 to-green-800 transition-all ease-in-out duration-100'>
+                    Phản hồi từ khách hàng của chúng tôi
+                </p>
+                <p className='mt-4 font-normal text-gray-600 tracking-wide leading-10 not-italic'>Don’t take our word for it. Trust our customers</p>
+            </div>
+            {/* py-6 px-6 flex gap-10 bg-white rounded-lg  */}
+            <div className='h-full w-full'>
             <Slider {...setting}>
+                {feedbacks.map((feedbacks,idx) => (
+                <div className='flex items-center justify-between my-4'>
+                    <div key={feedbacks.id} className={idx === imageIndex ? "slide activeSlide py-6 px-6 flex gap-10 bg-white rounded-xl drop-shadow-2xl " : "slide py-6 px-6 flex gap-10  rounded-lg "}>
+                        {/* ben trai, noi dung */}
+                        <div>
+                            <img className='h-5' src={IconFeedback}></img>
+                            {/* noi dung feedback */}
+                            <div>
+                                <p className=' font-light text-gray-600 not-italic tracking-wide leading-relaxed  text-xs object-none'>{feedbacks.data.feedback}</p>
+                                
+                            </div>
+                            {/* ten */}
+                            <div>
+                                <h1 className='text-clip 	 text-lg text-headingColor font-semibold underline hover:underline-offset-4 decoration-wavy decoration-sky-500/30'>{feedbacks.data.name}</h1>
+                            </div>
+                        </div>
+                        {/* ben phai, hinh anh feedback */}
+                        <div className='w-40 h-40  drop-shadow-2xl'>
+                            <img className='w-full h-full object-contain' src={feedbacks.data.imageURL} alt={feedbacks.data.name}></img>
+                        </div>
+                    </div>
+                </div>
+                ))}
+                 </Slider>
+            </div>
+
+            {/* <Slider {...setting}>
                 {images.map((img,idx) => (
                     <div className={idx === imageIndex ? "slide activeSlide" : "slide"}>
                         <img src={img} className="h-72"></img>
                     </div>
                 ))}
-            </Slider>
+            </Slider> */}
         </div>
     )
 }

@@ -191,46 +191,46 @@ const CreateContainer = () => {
                 </div>
                 {/* duongg */}
                 <div className="group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-225 md:h-300 cursor-pointer">
-            {isLoading ? (
-              <Loader />
-            ) : (
-              <>
-                {!imageAsset ? (
-                  <label className="w-full h-full flex flex-col items-center justify-center cursor-pointer">
-                    <div className="w-full h-full flex flex-col items-center justify-center">
-                      <MdCloudUpload className="text-gray-500 group-hover:text-gray-700 text-3xl" />
-                      <p className="text-gray-500 group-hover:text-gray-700">
-                        Click here to upload
-                      </p>
-                    </div>
-                    <input
-                      type="file"
-                      name="upload-image"
-                      accept="image/*"
-                      onChange={uploadImage}
-                      className="w-0 h-0"
-                    />
-                  </label>
-                ) : (
-                  <div className="relative h-full">
-                    <img
-                      src={imageAsset}
-                      alt=""
-                      className="h-full w-full object-cover"
-                    />
-                    <button
-                      type="button"
-                      className="absolute bottom-3 right-3 p-3 rounded-full bg-red-500 text-xl
-                  cursor-pointer outline-none hover:shadow-md duration-500 transition-all ease-in-out"
-                      onClick={deleteImage}
-                    >
-                        <MdDelete className="text-white" />
-                    </button>
-                  </div>
-                )}
-              </>
-            )}
-          </div>
+                  {isLoading ? (
+                    <Loader />
+                  ) : (
+                    <>
+                    {!imageAsset ? (
+                      <label className="w-full h-full flex flex-col items-center justify-center cursor-pointer">
+                        <div className="w-full h-full flex flex-col items-center justify-center">
+                          <MdCloudUpload className="text-gray-500 group-hover:text-gray-700 text-3xl" />
+                          <p className="text-gray-500 group-hover:text-gray-700">
+                            Click here to upload
+                          </p>
+                        </div>
+                        <input
+                          type="file"
+                          name="upload-image"
+                          accept="image/*"
+                          onChange={uploadImage}
+                          className="w-0 h-0"
+                        />
+                      </label>
+                    ) : (
+                        <div className="relative h-full">
+                          <img
+                            src={imageAsset}
+                            alt=""
+                            className="h-full w-full object-cover"
+                          />
+                          <button
+                            type="button"
+                            className="absolute bottom-3 right-3 p-3 rounded-full bg-red-500 text-xl
+                          cursor-pointer outline-none hover:shadow-md duration-500 transition-all ease-in-out"
+                            onClick={deleteImage}
+                          >
+                              <MdDelete className="text-white" />
+                          </button>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
                 {/* duongg */}
                 <div className='w-full flex flex-col md:flex-row items-center gap-3'>
                     <div className='w-full py-2 border-b border-gray-300 flex items-center gap-2'>
