@@ -3,7 +3,7 @@ import EmailSubmitRelease from '../Email/EmailSubmitRelease';
 const FooterRelease = () => {
     return (
         <div className='w-screen bg-backgroundfooter'>
-            <footer className="items-center w-full p-4 shadow md:px-6 md:py-8  bg-center bg-no-repeat bg-cover  bg-blend-multiply hover:bg-blend-soft-light dark:hover:bg-blend-darken">
+            <footer className="items-center w-full p-4 shadow md:px-6 md:py-8  bg-center bg-no-repeat bg-cover  bg-blend-multiply hover:bg-blend-soft-light ">
                 <div class="flex mt-6 space-x-6 sm:justify-center sm:mt-0 pt-3">
                     <div className='flex flex-col gap-3 my-5'>
                         <h1 className='font-semibold text-white'>LUÔN CẬP NHẬT</h1>

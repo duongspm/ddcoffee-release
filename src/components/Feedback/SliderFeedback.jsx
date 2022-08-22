@@ -78,32 +78,33 @@ function SliderFeedback() {
                 <p className='mt-4 font-normal text-gray-600 tracking-wide leading-10 not-italic'>Don’t take our word for it. Trust our customers</p>
             </div>
             {/* py-6 px-6 flex gap-10 bg-white rounded-lg  */}
-            <div className='h-full w-full'>
+            <div className=' w-full'>
             <Slider {...setting}>
                 {feedbacks.map((feedbacks,idx) => (
-                <div className='flex items-center justify-between my-4'>
-                    <div key={feedbacks.id} className={idx === imageIndex ? "slide activeSlide py-6 px-6 flex gap-10 bg-white rounded-xl drop-shadow-2xl " : "slide py-6 px-6 flex gap-10  rounded-lg "}>
+               
+                <div className='flex items-center  my-4'>
+                    <div key={feedbacks.id} className={idx === imageIndex ? "h-auto min-w-[325px] md:min-w-[350px] md:w-325 slide activeSlide py-6 pl-6  flex justify-between bg-white rounded-xl drop-shadow-2xl " : "slide py-6 px-6 flex gap-10  rounded-lg "}>
                         {/* ben trai, noi dung */}
-                        <div>
+                        <div className='w-3/5'>
                             <img className='h-5' src={IconFeedback}></img>
                             {/* noi dung feedback */}
-                            <div>
-                                <p className=' font-light text-gray-600 not-italic tracking-wide leading-relaxed  text-xs object-none'>{feedbacks.data.feedback}</p>
-                                
+                            <div className='max-w-prose'>
+                                <p className='max-w-prose font-light text-gray-600 not-italic tracking-wide leading-relaxed  text-xs object-none'>{feedbacks.data.feedback}</p>
                             </div>
                             {/* ten */}
-                            <div>
-                                <h1 className='text-clip 	 text-lg text-headingColor font-semibold underline hover:underline-offset-4 decoration-wavy decoration-sky-500/30'>{feedbacks.data.name}</h1>
+                            <div className='w-full'>
+                                <h1 className='max-w-prose text-clip text-lg text-headingColor font-semibold underline hover:underline-offset-4 decoration-wavy decoration-sky-500/30'>{feedbacks.data.name}</h1>
                             </div>
                         </div>
                         {/* ben phai, hinh anh feedback */}
-                        <div className='w-40 h-40  drop-shadow-2xl'>
-                            <img className='w-full h-full object-contain' src={feedbacks.data.imageURL} alt={feedbacks.data.name}></img>
+                        <div className='md:w-48 md:h-auto w-2/5 h-40 drop-shadow-2xl -mt-8'>
+                            <img className=' w-full h-full object-contain' src={feedbacks.data.imageURL} alt={feedbacks.data.name}></img>
                         </div>
                     </div>
                 </div>
+               
                 ))}
-                 </Slider>
+                </Slider>
             </div>
 
             {/* <Slider {...setting}>

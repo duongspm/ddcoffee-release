@@ -40,7 +40,7 @@ const MainContainer = () => {
                     scrollValue = {scrollValue}
                     flag={true} 
                     data={drinkItems?.filter((n) => n.category === 'cafe')}/> */}
-                    <RowContainerRelease scrollValue = {scrollValue} flag={true} data={drinkItems?.filter((n) => n.category === 'cafe')}/>
+                    <RowContainerRelease scrollValue = {scrollValue} flag={true} data={drinkItems?.filter((n) => n.category === 'tra')}/>
             </section>
             {/* End category */}
             <CartProvider>

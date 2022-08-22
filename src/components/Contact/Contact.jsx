@@ -5,15 +5,15 @@ const Contact = () => {
 
     return (
         <div className='w-screen bg-nendamhon'>
-            <div className="flex mb-16 mt-16 w-full mr-3 items-center justify-center">
-                <div className='group bg-cardOverlay w-225 h-225 cursor-pointer drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-lighttextGray'>
+            <div className="flex mb-16 mt-16 w-full mr-3 items-center justify-center sm:flex">
+                <div className=' group bg-cardOverlay w-225 h-225 cursor-pointer drop-shadow-xl flex flex-col gap-3 items-center justify-center hover:bg-lighttextGray'>
                     <div className='rounded-full bg-green-800 w-16 h-16 flex items-center justify-center'>
                         <MdOutlinePhoneInTalk className='text-4xl text-white'/>
                     </div>
                     <div className='text-lg text-headingColor font-semibold uppercase'>
                         LET'S TALK
                     </div>
-                    <div>
+                    <div>   
                         <div className='text-sm text-gray-500 sm:text-center'>
                             Phone: <a href="tel:0396752611">0396752611</a>
                         </div>
