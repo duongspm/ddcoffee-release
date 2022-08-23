@@ -10,13 +10,15 @@ const MenuContainer = () => {
     const [filter, setFilter] = useState("cafe");
 
     const [{drinkItems}, dispatch] = useStateValue();
-
+    const transition = {type: "spring", duration: 3};
     return (
         <section id='menu' className="w-full mt-6">
             <div className='w-full flex flex-col items-center justify-center'>
-                <p className='text-2xl font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-20 before:h-1 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-green-600 to-green-800 transition-all ease-in-out duration-100 mr-auto'>
+                <motion.p initial={{opacity: 0,x: -100}}
+                        transition={{...transition, duration: 2}}
+                        whileInView={{opacity: 1, x: 0}} className='text-2xl font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-20 before:h-1 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-green-600 to-green-800 transition-all ease-in-out duration-100 mr-auto'>
                     Our Hot Drink
-                </p>
+                </motion.p>
                 <div className='w-full flex items-center justify-start lg:justify-center gap-8 py-12 overflow-x-scroll scrollbar-none'>
                     {categories && categories.map((category) => 
                         <motion.div whileTap={{scale: 0.75}} key={category.id} className={`group ${filter === category.urlParamName ? "bg-cartNumBg" : "bg-card"}  w-24 min-w-[94px] h-28 cursor-pointer rounded-lg drop-shadpw-xl flex flex-col gap-3 items-center justify-center hover:bg-red-600`} onClick={() => setFilter(category.urlParamName)}>

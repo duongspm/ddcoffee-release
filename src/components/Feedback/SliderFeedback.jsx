@@ -78,7 +78,7 @@ function SliderFeedback() {
                 <p className='mt-4 font-normal text-gray-600 tracking-wide leading-10 not-italic'>Don’t take our word for it. Trust our customers</p>
             </div>
             {/* py-6 px-6 flex gap-10 bg-white rounded-lg  */}
-            <div className=' w-full'>
+            <div className=' w-full items-center justify-center'>
             <Slider {...setting}>
                 {feedbacks.map((feedbacks,idx) => (
                
