@@ -53,7 +53,7 @@ const CreateContainer = () => {
               setIsLoading(false);
               setFields(true);
               setMsg("Image uploaded to successfully 😊");
-              toast.danger("Image uploaded to successfully 😊");
+              toast.success("Image uploaded to successfully 😊");
               setAlertStatus("success");
               setTimeout(() => {
                 setFields(false);
