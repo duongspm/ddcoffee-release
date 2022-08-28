@@ -8,6 +8,7 @@ import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
 import NumberFormat from 'react-number-format';
 
+
 const CartContainer = ({ cartMenu, setCartMenu }) => {
     const [{cartShow, cartItems, user, total, drinkItems}, dispatch] = 
     useStateValue();
