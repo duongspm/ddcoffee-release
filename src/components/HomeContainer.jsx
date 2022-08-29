@@ -23,7 +23,7 @@ const HomeContainer = () => {
                 </div>
                 <motion.p initial={{opacity: 0,x: -100}}
                         transition={{...transition, duration: 2}}
-                        whileInView={{opacity: 1, x: 0}}  className='text-[2.5rem] font-bold tracking-wide text-headingColor lg:text-[4.5rem]'>Giao hàng nhanh trong khu vực <span className='text-green-800 text-[3rem] lg:text-[5rem]'>Thủ Dầu Một</span></motion.p>
+                        whileInView={{opacity: 1, x: 0}}  className='text-[2.5rem] font-bold tracking-wide text-headingColor lg:text-[4.5rem]'>Miễn Phí Giao Hàng Trong Phạm Vi <span className='text-green-800 text-[3rem] lg:text-[5rem]'>5km</span></motion.p>
                 <p className='text-base text-textColor text-center md:text-left md:w-[80%]'>Money buys Coffee, Coffee makes Me Happy!. People drink coffee to relieve mental and physicl fatigue and to increase metal alertness. Coffee is also used to prevent. Parkison's disease gallstones, type 2 diabetes</p>
                 <button type='button' className='bg-gradient-to-br from-green-600 to-green-800 w-full px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out md:w-auto text-white'>BUY NOW</button>
             </div>
