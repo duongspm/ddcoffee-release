@@ -13,6 +13,7 @@ import FooterRelease from './Footer/FooterRelease';
 import Feedback from './Feedback/Feedback';
 import SliderFeedback from './Feedback/SliderFeedback';
 import Map from './Map/Map';
+
 const MainContainer = () => {
     const [{drinkItems, cartShow}, dispatch] = useStateValue();
     const [scrollValue, setScrollValue] = useState(0);
@@ -52,7 +53,7 @@ const MainContainer = () => {
             </CartProvider>
             <Feedback/>
             <SliderFeedback/>
-         
+            <Map/>
             <Contact/>
             <FooterRelease/>
             

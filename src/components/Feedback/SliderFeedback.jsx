@@ -81,7 +81,6 @@ function SliderFeedback() {
             <div className=' w-full items-center justify-center'>
             <Slider {...setting}>
                 {feedbacks.map((feedbacks,idx) => (
-               
                 <div className='flex items-center  my-4'>
                     <div key={feedbacks.id} className={idx === imageIndex ? "h-auto min-w-[325px] md:min-w-[350px] md:w-325 slide activeSlide py-6 pl-6  flex justify-between bg-white rounded-xl drop-shadow-2xl " : "slide py-6 px-6 flex gap-10  rounded-lg "}>
                         {/* ben trai, noi dung */}
