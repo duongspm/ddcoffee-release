@@ -113,7 +113,7 @@ function SliderFeedback() {
                 <Slider {...setting}>
                 {feedbacks.map((feedbacks,idx)  => (
                     <div className='flex items-center my-4'>
-                        <div  key={feedbacks.id} className={idx === imageIndex ? " max-w-xs slide activeSlide justify-between bg-white rounded-2xl drop-shadow-2xl ": "slide  justify-between bg-white rounded-2xl drop-shadow-2xl max-w-xs"}>
+                        <div  key={feedbacks.id} className={idx === imageIndex ? "max-w-xs slide activeSlide justify-between bg-white rounded-2xl drop-shadow-2xl ": "slide  justify-between bg-white rounded-2xl drop-shadow-2xl max-w-xs"}>
                             {/* top */}
                             <div className='p-3 flex items-center justify-between'>
                                 <div className='flex items-center'>
