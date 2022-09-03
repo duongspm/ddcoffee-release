@@ -64,9 +64,9 @@ const Header = () => {
                         animate={{opacity: 1, x: 0}}
                         exit={{opacity: 0, x: 200}}
                         className="flex items-center gap-8 ">
-                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer'><Linkk to='home' span={true} smooth={true}>Home</Linkk></li>
+                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer'><Linkk to='home' span={true} smooth={true}>Trang Chủ</Linkk></li>
                         <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Linkk to='menu' span={true} smooth={true}>Menu</Linkk></li>
-                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Linkk to='about' span={true} smooth={true}>About Us</Linkk></li>
+                        <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Linkk to='ggmap' span={true} smooth={true}>Chỉ Đường</Linkk></li>
                         <li className='text-base text-textColor hover:text-colorGreen duration-100 transition-all ease-in-out cursor-pointer' onClick={()=>setIsMenu(false)}><Linkk to='feedback' span={true} smooth={true}>Feedback</Linkk></li>
                     </motion.ul>    
                     <div className='relative flex items-center justify-center' onClick={showCart}>

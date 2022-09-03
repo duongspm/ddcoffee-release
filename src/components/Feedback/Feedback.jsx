@@ -12,6 +12,7 @@ import {MdDelete} from 'react-icons/md';
 import { getALlFeedBack, saveFeedback } from '../../utils/firebaseFunctions';
 import { useStateValue } from '../../context/StateProvider';
 import { actionType } from '../../context/reducer';
+import "./Feedback.css";
 
 const Feedback = () => {
     const [name, setName] = useState("");
@@ -182,7 +183,12 @@ const Feedback = () => {
                         <textarea rows="4" type="text" value={feedback} onChange={(e) => setFeedback(e.target.value)} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" placeholder="Đóng góp ý kiến của bạn ..." required/>
                     </div>
                     <div class="flex justify-between items-center py-2 px-3 border-t dark:border-gray-600">
-                        <button onClick={saveDetails} type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+                        
+                        <button onClick={saveDetails} type="button" class="button text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                            <span class="success">Gửi</span>
+                           
+                        </button>
+
                         <div class="flex pl-0 space-x-1 sm:pl-2">
                             <button type="button" class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
                                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd"></path></svg>
